@@ -1,6 +1,6 @@
 import { json } from '@remix-run/node';
 import { Link, Outlet, useLoaderData } from '@remix-run/react';
-import { fetchProducts } from '~/utils/fetchProducts';
+import { fetchProducts } from '~/utils/productUtils';
 
 export const loader = async () => {
 	const products = await fetchProducts();

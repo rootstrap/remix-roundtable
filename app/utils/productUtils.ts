@@ -23,6 +23,7 @@ const products: Product[] = [
 ];
 
 export const fetchProducts = async (): Promise<Product[]> => {
+	console.log({ products });
 	return Promise.resolve(products);
 };
 
@@ -30,4 +31,10 @@ export const fetchProductDetails = async (productId: string): Promise<Product> =
 	const product = products.filter((prod) => prod.link === productId)[0];
 
 	return Promise.resolve(product);
+};
+
+export const createProduct = async (title: string, description: string): Promise<boolean> => {
+	const newProduct: Product = { title, description, link: title.replace(' ', '-') };
+	products.push(newProduct);
+	return Promise.resolve(true);
 };
