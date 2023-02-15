@@ -22,14 +22,7 @@ const PasswordRecoveryRoute = () => {
 					<InputField label='Email' name={FormFields.email} isRequired type='email' />
 					<Button className='mt-4' label='Recover password' type='submit' variant='primary' />
 					<Link to='/'>
-						<Button
-							className='mt-4'
-							label='Go back to login'
-							type='submit'
-							variant='outline'
-							onClick={() => console.log('Go back to login')}
-							fullWidth
-						/>
+						<Button className='mt-4' label='Go back to login' variant='outline' fullWidth />
 					</Link>
 				</div>
 			</form>
