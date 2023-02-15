@@ -19,7 +19,7 @@ export const ValidationMessage = ({ error, isSubmitting = false }: ValidationMes
 
 	return (
 		<div
-			className={cn('text-red-500', { 'h-4 opacity-100': show }, { 'h-0 opacity-0': !show })}
+			className={cn('text-red-500 my-2', { 'h-4 opacity-100': show }, { 'h-0 opacity-0': !show })}
 			style={{ transition: 'all 300ms ease-in-out' }}
 		>
 			{error}
