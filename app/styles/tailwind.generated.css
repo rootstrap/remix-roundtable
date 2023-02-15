@@ -660,6 +660,10 @@ video {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-b-1 {
   border-bottom-width: 1px;
 }
@@ -688,6 +692,11 @@ video {
   border-color: rgb(99 99 99 / var(--tw-border-opacity));
 }
 
+.border-red-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(172 7 0 / var(--tw-border-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 3 26 / var(--tw-bg-opacity));
@@ -706,6 +715,11 @@ video {
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(206 206 206 / var(--tw-bg-opacity));
+}
+
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 97 76 / var(--tw-bg-opacity));
 }
 
 .bg-auth-background {

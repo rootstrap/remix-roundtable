@@ -1,4 +1,9 @@
-import type { LoaderFunction, LoaderArgs } from '@remix-run/node';
+import type {
+	LoaderFunction,
+	LoaderArgs,
+	MetaFunction,
+	ErrorBoundaryComponent,
+} from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { getUserSession } from '~/session.server';
 import logo from '~/images/Logo.png';
@@ -48,7 +53,7 @@ const ProductsPage = () => {
 			<h3 className='text-center p-4 mt-2 text-lg'>Explore Products</h3>
 
 			<div className='mt-8 border-1 border-gray-700 rounded-lg mx-4 bg-white overflow-hidden'>
-				{data.results?.map((product) => (
+				{data.results.map((product) => (
 					<div key={product.id} className='border-b-1 border-gray-700 flex'>
 						<div className='w-1/4 h-[120px] p-2'>
 							<img src={product.product_picture} alt={product.name} className='w-full h-full' />
@@ -62,6 +67,23 @@ const ProductsPage = () => {
 			</div>
 		</div>
 	);
+};
+
+export const ErrorBoundary: ErrorBoundaryComponent = () => {
+	return (
+		<div className='mt-8 border-1 border-gray-700 rounded-lg mx-4 bg-white overflow-hidden'>
+			<p className='p-4 bg-red-50 text-center border-red-900'>
+				Service not available at this moment
+			</p>
+		</div>
+	);
+};
+
+export const meta: MetaFunction = () => {
+	return {
+		title: 'BlackMarket Products',
+		description: 'Explore our products',
+	};
 };
 
 export default ProductsPage;
