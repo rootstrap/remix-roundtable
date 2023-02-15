@@ -71,10 +71,19 @@ const ProductsPage = () => {
 
 export const ErrorBoundary: ErrorBoundaryComponent = () => {
 	return (
-		<div className='mt-8 border-1 border-gray-700 rounded-lg mx-4 bg-white overflow-hidden'>
-			<p className='p-4 bg-red-50 text-center border-red-900'>
-				Service not available at this moment
-			</p>
+		<div className='bg-gray-50 h-screen'>
+			<nav className='flex p-4 bg-gray-400'>
+				<img src={logo} alt='blackmarket' />
+			</nav>
+			<hr />
+
+			<h3 className='text-center p-4 mt-2 text-lg'>Explore Products</h3>
+
+			<div className='mt-8 border-1 border-gray-700 rounded-lg mx-4 bg-white overflow-hidden'>
+				<p className='p-4 bg-red-50 text-center border-red-900'>
+					Service not available at this moment
+				</p>
+			</div>
 		</div>
 	);
 };
