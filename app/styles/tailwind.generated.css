@@ -533,13 +533,22 @@ video {
   top: 0px;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mb-2 {
   margin-bottom: 0.5rem;
 }
 
@@ -571,10 +580,6 @@ video {
   margin-top: 2.25rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .block {
   display: block;
 }
@@ -603,12 +608,28 @@ video {
   height: 100vh;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.h-\[120px\] {
+  height: 120px;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-screen {
   width: 100vw;
+}
+
+.w-1\/5 {
+  width: 20%;
+}
+
+.w-1\/4 {
+  width: 25%;
 }
 
 .cursor-pointer {
@@ -619,8 +640,16 @@ video {
   flex-direction: column;
 }
 
+.items-center {
+  align-items: center;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .rounded-lg {
@@ -629,6 +658,10 @@ video {
 
 .border-1 {
   border-width: 1px;
+}
+
+.border-b-1 {
+  border-bottom-width: 1px;
 }
 
 .border-solid {
@@ -645,6 +678,16 @@ video {
   border-color: rgb(202 37 16 / var(--tw-border-opacity));
 }
 
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(186 186 186 / var(--tw-border-opacity));
+}
+
+.border-gray-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 99 99 / var(--tw-border-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 3 26 / var(--tw-bg-opacity));
@@ -653,6 +696,16 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 247 244 / var(--tw-bg-opacity));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(206 206 206 / var(--tw-bg-opacity));
 }
 
 .bg-auth-background {
@@ -665,6 +718,14 @@ video {
 
 .p-3 {
   padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-2 {
@@ -696,6 +757,11 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-black {

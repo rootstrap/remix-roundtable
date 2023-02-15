@@ -1,8 +1,9 @@
 import type { ActionFunction, MetaFunction } from '@remix-run/node';
-import { json, redirect } from '@remix-run/node';
+import { json } from '@remix-run/node';
 import { Form, Link, useActionData, useTransition } from '@remix-run/react';
 import { Button, InputField, ValidationMessage } from '~/components';
 import logo from '~/images/Logo.png';
+import { createUserSession } from '~/session.server';
 
 enum FormFields {
 	email = 'email',
@@ -42,8 +43,7 @@ export const action: ActionFunction = async ({ request }) => {
 
 	if (response.non_field_errors) return json({ error: response.non_field_errors });
 
-	console.log({ response }); /* TODO: store session in cookies, show response in server logs */
-	return redirect('/products');
+	return createUserSession(response.access_token, '/products');
 };
 
 const LoginRoute = () => {
