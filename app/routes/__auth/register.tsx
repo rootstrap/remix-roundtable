@@ -1,4 +1,4 @@
-import type { ActionFunction } from '@remix-run/node';
+import type { ActionFunction, MetaFunction } from '@remix-run/node';
 import { json, redirect } from '@remix-run/node';
 import { Form, Link, useActionData, useTransition } from '@remix-run/react';
 import { Button, InputField, ValidationMessage } from '~/components';
@@ -47,8 +47,6 @@ const RegisterRoute = () => {
 
 	const isButtonDisabled = transition.state === 'loading' || transition.state === 'submitting';
 	const buttonLabel = isButtonDisabled ? 'Submiting...' : 'Sign up';
-
-	console.log({ errors });
 
 	return (
 		<div id='register-page' className='md:max-w-authForms'>
@@ -99,6 +97,13 @@ const RegisterRoute = () => {
 			</Form>
 		</div>
 	);
+};
+
+export const meta: MetaFunction = () => {
+	return {
+		title: 'Register - Blackmarket',
+		description: 'This an e-commerce of diverse furniture',
+	};
 };
 
 export default RegisterRoute;

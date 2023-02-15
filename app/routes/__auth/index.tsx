@@ -1,4 +1,4 @@
-import type { ActionFunction } from '@remix-run/node';
+import type { ActionFunction, MetaFunction } from '@remix-run/node';
 import { json, redirect } from '@remix-run/node';
 import { Form, Link, useActionData, useTransition } from '@remix-run/react';
 import { Button, InputField, ValidationMessage } from '~/components';
@@ -40,13 +40,9 @@ export const action: ActionFunction = async ({ request }) => {
 		})
 	).json()) as unknown as LoginResponse;
 
-	if (response.non_field_errors) {
-		return json({ error: response.non_field_errors });
-	}
+	if (response.non_field_errors) return json({ error: response.non_field_errors });
 
-	/* TODO: store session in cookies, show response in server logs */
-
-	console.log({ response });
+	console.log({ response }); /* TODO: store session in cookies, show response in server logs */
 	return redirect('/products');
 };
 
@@ -93,6 +89,13 @@ const LoginRoute = () => {
 			</div>
 		</div>
 	);
+};
+
+export const meta: MetaFunction = () => {
+	return {
+		title: 'Login - Blackmarket',
+		description: 'This an e-commerce of diverse furniture',
+	};
 };
 
 export default LoginRoute;
