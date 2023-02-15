@@ -1,17 +1,18 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const maxWidth = {
+	authForms: '380px',
+};
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./app/**/*.{jsx,tsx}'],
 	theme: {
-		fontFamily: {
-			sans: ['DM Sans', ...defaultTheme.fontFamily.sans],
-		},
-		fontSize: {
-			...defaultTheme.fontSize,
-			'3xl': '1.75rem',
-		},
 		extend: {
+			fontFamily: {
+				sans: ['DM Sans', 'sans-serif'],
+			},
+			backgroundImage: {
+				'auth-background': "url('/images/AuthBackground.png')",
+			},
 			colors: {
 				white: '#FFFFFF',
 				black: '#00031A',
@@ -67,6 +68,7 @@ module.exports = {
 			borderWidth: {
 				1: '1px',
 			},
+			maxWidth,
 		},
 	},
 	plugins: [],
