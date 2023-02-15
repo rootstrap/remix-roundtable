@@ -1,4 +1,3 @@
-import type { Request } from '@remix-run/node';
 import { redirect } from '@remix-run/node';
 import { createCookieSessionStorage } from '@remix-run/node';
 
