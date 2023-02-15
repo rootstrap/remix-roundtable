@@ -554,6 +554,18 @@ video {
   margin-top: 1rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -598,6 +610,10 @@ video {
   flex-direction: column;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -625,6 +641,11 @@ video {
   background-color: rgb(0 3 26 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-auth-background {
   background-image: url('app/images/BlackMarketAuthBg.png');
 }
@@ -647,8 +668,30 @@ video {
   padding-right: 1rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-black {
@@ -656,9 +699,9 @@ video {
   color: rgb(0 3 26 / var(--tw-text-opacity));
 }
 
-.text-red-50 {
+.text-blue-500 {
   --tw-text-opacity: 1;
-  color: rgb(255 97 76 / var(--tw-text-opacity));
+  color: rgb(7 108 224 / var(--tw-text-opacity));
 }
 
 .text-red-500 {
@@ -834,4 +877,10 @@ video {
 .disabled\:text-gray-700:disabled {
   --tw-text-opacity: 1;
   color: rgb(99 99 99 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+  .md\:max-w-authForms {
+    max-width: 380px;
+  }
 }
