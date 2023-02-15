@@ -11,7 +11,7 @@ module.exports = {
 				sans: ['DM Sans', 'sans-serif'],
 			},
 			backgroundImage: {
-				'auth-background': "url('/images/AuthBackground.png')",
+				'auth-background': "url('app/images/BlackMarketAuthBg.png')",
 			},
 			colors: {
 				white: '#FFFFFF',
