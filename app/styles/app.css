@@ -35,3 +35,24 @@
 .text-tiny-small {
 	@apply text-xs;
 }
+
+.pattern-blue {
+	background-color: #e5e5f7;
+	opacity: 0.8;
+	background-size: 10px 10px;
+	background-image: repeating-linear-gradient(45deg, #444cf7 0, #444cf7 1px, #e5e5f7 0, #e5e5f7 50%);
+}
+
+.pattern-red {
+	background-color: #f7e5e5;
+	opacity: 0.8;
+	background-size: 10px 10px;
+	background-image: repeating-linear-gradient(-45deg, #f74444 0, #f74444 1px, #f7e5e5 0, #f7e5e5 50%);
+}
+
+.pattern-green {
+	background-color: #e5f7ed;
+	opacity: 0.5;
+	background-size: 10px 10px;
+	background-image: repeating-linear-gradient(90deg, #44f7b2 0, #44f7b2 1px, #e5f7ed 0, #e5f7ed 50%);
+}

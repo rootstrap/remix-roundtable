@@ -1,16 +1,30 @@
-import { Link, Outlet, useParams } from '@remix-run/react';
+import { useState } from 'react';
+import { Link, Outlet, useOutletContext, useParams } from '@remix-run/react';
 import cn from 'classnames';
 
 const Pokemons = () => {
 	const pokemonsTypes = ['normal', 'fighting', 'flying', 'poison'];
 	const { type } = useParams();
+	const [xRayMode, setXRayMode] = useState(false);
 
 	return (
-		<div className='p-8'>
-			<h1 className='my-4 text-xl'>Nested Routing Example</h1>
+		<div
+			className={cn('p-8', {
+				'outline-4 -outline-offset-4 outline-dotted outline-blue-500 pattern-blue': xRayMode,
+			})}
+		>
+			<div className={'flex justify-between items-center'}>
+				<h1 className='my-4 text-xl'>Nested Routing Example</h1>
+				<div className='grid grid-cols-2 gap-4'>
+					<button onClick={() => setXRayMode(!xRayMode)}>X Ray</button>
+					<Link className='' to='/pokemon-types'>
+						Reset
+					</Link>
+				</div>
+			</div>
 			<hr />
 			<main className=''>
-				<div className='flex my-4'>
+				<div className={cn('flex my-4', { grayscale: xRayMode })}>
 					{pokemonsTypes.map((pokemonType) => (
 						<Link
 							key={pokemonType}
@@ -24,10 +38,14 @@ const Pokemons = () => {
 						</Link>
 					))}
 				</div>
-				<Outlet />
+				<Outlet context={{ xRayMode }} />
 			</main>
 		</div>
 	);
+};
+
+export const useXRayMode = () => {
+	return useOutletContext<{ xRayMode: boolean }>();
 };
 
 export default Pokemons;
