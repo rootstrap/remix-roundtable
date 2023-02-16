@@ -4,6 +4,7 @@ import { useLoaderData, Outlet, Link, useParams } from '@remix-run/react';
 import cn from 'classnames';
 import pokemonList from '~/data/pokemon.json';
 import unrevealedSquirtle from '~/images/squirtle.png';
+import { useXRayMode } from '../pokemon-types';
 
 export const loader = async ({ params }: LoaderArgs) => {
 	const filteredPokemon = pokemonList.pokemons.filter((pokemon) =>
@@ -20,14 +21,17 @@ const PokemonPage = () => {
 
 	const capitalizedType = selectedType.charAt(0).toUpperCase() + selectedType.slice(1);
 
+	const { xRayMode } = useXRayMode();
+
 	return (
 		<div className='bg-cyan-50'>
 			<div
 				className={cn('grid border border-cyan-900 rounded-lg overflow-hidden', {
 					'grid-cols-2': selectedPokemon,
+					'outline-4 outline-dashed outline-red-500 pattern-red': xRayMode,
 				})}
 			>
-				<div>
+				<div className={cn({ grayscale: xRayMode })}>
 					<div className='bg-cyan-800 text-white'>
 						<h2 className='text-lg font-bold text-center py-4'>{capitalizedType} Pokemon</h2>
 					</div>
@@ -46,7 +50,7 @@ const PokemonPage = () => {
 						))}
 					</div>
 				</div>
-				<Outlet />
+				<Outlet context={{ xRayMode }} />
 			</div>
 		</div>
 	);

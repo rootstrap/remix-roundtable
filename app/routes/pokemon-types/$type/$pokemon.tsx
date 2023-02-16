@@ -22,7 +22,7 @@ const FetchData = () => {
 				'outline-4 -outline-offset-4 outline-dashed outline-lime-500 pattern-green': xRayMode,
 			})}
 		>
-			<div className={cn({ grayscale: xRayMode })}>
+			<div className={cn('w-full', { grayscale: xRayMode })}>
 				<button className='absolute right-4 top-4 text-white' onClick={() => navigate('../')}>
 					Close
 				</button>
