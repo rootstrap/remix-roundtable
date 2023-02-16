@@ -2,6 +2,11 @@
 
 - [Remix Docs](https://remix.run/docs)
 
+## API Blackmarket
+
+DOCS: https://black-market-juan-rs.herokuapp.com/api/docs/#/
+ADMIN: https://black-market-juan-rs.herokuapp.com/oUtrS6w4rVR7X505pa9RRLpVhLCTSQSIxbUJNcUt/login/?next=/oUtrS6w4rVR7X505pa9RRLpVhLCTSQSIxbUJNcUt/
+
 ## Development
 
 From your terminal:
