@@ -37,7 +37,7 @@ const PokemonDetail = () => {
 					</div>
 					<div className='p-8'>
 						{/* Will fail when `images` is `undefined` */}
-						<img src={pokemon.images.artwork} alt={pokemon?.name} />
+						<img src={pokemon?.images.artwork} alt={pokemon?.name} />
 					</div>
 					<div className='mb-8'>
 						{pokemon?.types.map((type) => (

@@ -4,7 +4,7 @@ import styles from '~/styles/tailwind.generated.css';
 
 export const meta: MetaFunction = () => ({
 	charset: 'utf-8',
-	title: 'New Remix App',
+	title: 'JS Roundtable - Remix',
 	viewport: 'width=device-width,initial-scale=1',
 });
 
