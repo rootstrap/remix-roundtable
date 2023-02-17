@@ -1576,6 +1576,12 @@
       "types": [
         "psychic"
       ]
+    },
+    {
+      "name": "problematic",
+      "types": [
+        "normal", "fighting", "flying", "poison"
+      ]
     }
   ]
 }

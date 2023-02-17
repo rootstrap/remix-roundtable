@@ -1,9 +1,7 @@
-import type { LinksFunction, LoaderArgs } from '@remix-run/node';
+import type { LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import type { PokeDetailsResponse } from '~/types/interfaces';
-import sharedStyles from '~/styles/vanilla-css/shared.css';
-import uniqueStyles from '~/styles/vanilla-css/unique.css';
 
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon';
 
@@ -16,21 +14,14 @@ export const loader = async ({ params }: LoaderArgs) => {
 	return json({ name: pokemonDetails.name, types: pokemonDetails.types, id: pokeId });
 };
 
-// You can control which stylesheets are applied with a route-level granularity
-export const links: LinksFunction = () => {
-	return [
-		{ rel: 'stylesheet', href: sharedStyles },
-		{ rel: 'stylesheet', href: uniqueStyles },
-	];
-};
-
 const PokemonPage = () => {
 	const { name, types, id } = useLoaderData<typeof loader>();
 
 	return (
-		<div className='flex flex-col justify-center items-center'>
-			<h3 className='mb-8'>Pokemon Details</h3>
-			<main className='poke-grid-item'>
+		<div>
+			<h3>Pokemon Details</h3>
+			<hr />
+			<main>
 				<p>Name: {name}</p>
 				<img
 					src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}

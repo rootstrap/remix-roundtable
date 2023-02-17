@@ -1,7 +1,5 @@
-import type { LinksFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
-import sharedStyles from '~/styles/vanilla-css/shared.css';
 
 type PokeResults = {
 	name: string;
@@ -17,10 +15,6 @@ export const loader = async () => {
 	return json({ pokemons: pokemons.results });
 };
 
-export const links: LinksFunction = () => {
-	return [{ rel: 'stylesheet', href: sharedStyles }];
-};
-
 const FetchData = () => {
 	const data = useLoaderData<typeof loader>();
 
@@ -29,9 +23,9 @@ const FetchData = () => {
 			<h3>Poke Api</h3>
 			<hr />
 			<main>
-				<div className='poke-grid'>
+				<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
 					{data.pokemons.map((pokemon, index) => (
-						<div className='poke-grid-item' key={pokemon.url}>
+						<div key={pokemon.url}>
 							<Link to={`/${index + 1}`} prefetch='intent'>
 								<img
 									src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${

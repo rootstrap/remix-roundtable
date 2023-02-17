@@ -561,10 +561,6 @@ video {
   margin-bottom: auto;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -767,6 +763,11 @@ video {
   border-color: rgb(172 7 0 / var(--tw-border-opacity));
 }
 
+.border-rose-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(159 18 57 / var(--tw-border-opacity));
+}
+
 .border-rose-600 {
   --tw-border-opacity: 1;
   border-color: rgb(225 29 72 / var(--tw-border-opacity));
@@ -950,6 +951,10 @@ video {
 
 .outline {
   outline-style: solid;
+}
+
+.outline-dashed {
+  outline-style: dashed;
 }
 
 .outline-dotted {
