@@ -10,7 +10,7 @@ export const loader = async ({ params }: LoaderArgs) => {
 	return json({ pokemon });
 };
 
-const FetchData = () => {
+const PokemonDetail = () => {
 	const { pokemon } = useLoaderData<typeof loader>();
 	const navigate = useNavigate();
 
@@ -49,4 +49,4 @@ const FetchData = () => {
 	);
 };
 
-export default FetchData;
+export default PokemonDetail;

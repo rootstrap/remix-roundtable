@@ -15,13 +15,12 @@ export const loader = async ({ params }: LoaderArgs) => {
 	});
 };
 
-const PokemonPage = () => {
+const PokemonGrid = () => {
 	const { type: selectedType = '', pokemon: selectedPokemon } = useParams();
 	const { pokemons } = useLoaderData<typeof loader>();
+	const { xRayMode } = useXRayMode();
 
 	const capitalizedType = selectedType.charAt(0).toUpperCase() + selectedType.slice(1);
-
-	const { xRayMode } = useXRayMode();
 
 	return (
 		<div className='bg-cyan-50'>
@@ -56,4 +55,4 @@ const PokemonPage = () => {
 	);
 };
 
-export default PokemonPage;
+export default PokemonGrid;
