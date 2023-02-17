@@ -1,6 +1,7 @@
-import type { LoaderArgs } from '@remix-run/node';
+import type { ActionFunction, ErrorBoundaryComponent, LoaderArgs } from '@remix-run/node';
+import { Response } from '@remix-run/node';
 import { json } from '@remix-run/node';
-import { useLoaderData, useNavigate } from '@remix-run/react';
+import { useCatch, useLoaderData, useNavigate } from '@remix-run/react';
 import cn from 'classnames';
 import pokemonList from '~/data/pokemon.json';
 import { useXRayMode } from '~/routes/pokemon-types';
@@ -8,6 +9,10 @@ import { useXRayMode } from '~/routes/pokemon-types';
 export const loader = async ({ params }: LoaderArgs) => {
 	const pokemon = pokemonList.pokemons.find((pokemon) => pokemon.name === params.pokemon);
 	return json({ pokemon });
+};
+
+export const action: ActionFunction = async () => {
+	throw new Response('Could not catch pokemon because of reasons', { status: 500 });
 };
 
 const PokemonDetail = () => {
@@ -31,7 +36,8 @@ const PokemonDetail = () => {
 						<h3 className='text-lg font-bold text-center py-4'>{pokemon?.name}</h3>
 					</div>
 					<div className='p-8'>
-						<img src={pokemon?.images.artwork} alt={pokemon?.name} />
+						{/* Will fail when `images` is `undefined` */}
+						<img src={pokemon.images.artwork} alt={pokemon?.name} />
 					</div>
 					<div className='mb-8'>
 						{pokemon?.types.map((type) => (
@@ -43,7 +49,61 @@ const PokemonDetail = () => {
 							</span>
 						))}
 					</div>
+					<form method='post' className='mt-12'>
+						<button
+							className='mr-2 py-2 px-4 border border-rose-600 text-rose-600 rounded-md'
+							type='submit'
+						>
+							Catch! (and fail)
+						</button>
+					</form>
 				</div>
+			</div>
+		</div>
+	);
+};
+
+export function CatchBoundary() {
+	const navigate = useNavigate();
+	const caught = useCatch();
+
+	return (
+		<div className='w-full h-full bg-rose-200 text-white relative flex flex-col'>
+			<button className='absolute right-4 top-4 text-white' onClick={() => navigate('../')}>
+				Close
+			</button>
+			<div className='flex items-center flex-col w-full bg-red-500'>
+				<h3 className='text-lg font-bold text-center py-4'>Catch Boundary</h3>
+			</div>
+			<div className='flex flex-col items-center justify-center h-full'>
+				<code className='text-lg font-extralight text-center py-4 text-rose-600'>
+					{JSON.stringify(caught, null, 2)}
+				</code>
+				<p className='text-rose-600 mt-12'>
+					TIP: Used for <strong>EXPECTED</strong> errors and validations
+				</p>
+			</div>
+		</div>
+	);
+}
+
+export const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => {
+	const navigate = useNavigate();
+	return (
+		<div className='w-full h-full bg-rose-200 text-white relative flex flex-col'>
+			<button className='absolute right-4 top-4 text-white' onClick={() => navigate('../')}>
+				Close
+			</button>
+			<div className='flex items-center flex-col w-full bg-red-500'>
+				<h3 className='text-lg font-bold text-center py-4'>Error Boundary</h3>
+			</div>
+			<div className='flex flex-col items-center justify-center h-full'>
+				<code className='text-lg font-extralight text-center py-4 text-rose-600'>
+					{JSON.stringify(error.message, null, 2)}
+				</code>
+				<p className='text-rose-600 mt-12'>
+					TIP: Used for <strong>UNEXPECTED</strong> errors
+				</p>
 			</div>
 		</div>
 	);

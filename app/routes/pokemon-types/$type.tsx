@@ -44,7 +44,7 @@ const PokemonGrid = () => {
 								preventScrollReset
 							>
 								<img src={images?.default || unrevealedSquirtle} alt={name} />
-								<p>{name}</p>
+								<p className='font-extralight'>{name}</p>
 							</Link>
 						))}
 					</div>
