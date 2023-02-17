@@ -31,6 +31,7 @@ const PokemonDetail = () => {
 						<h3 className='text-lg font-bold text-center py-4'>{pokemon?.name}</h3>
 					</div>
 					<div className='p-8'>
+						{/* Will fail when `images` is `undefined` */}
 						<img src={pokemon.images.artwork} alt={pokemon?.name} />
 					</div>
 					<div className='mb-8'>
