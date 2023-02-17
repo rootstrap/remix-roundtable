@@ -1,10 +1,11 @@
 import { json } from '@remix-run/node';
-import type { LoaderArgs } from '@remix-run/node';
+import type { LoaderArgs, LinksFunction } from '@remix-run/node';
 import { useLoaderData, Outlet, Link, useParams } from '@remix-run/react';
 import cn from 'classnames';
 import pokemonList from '~/data/pokemon.json';
 import unrevealedSquirtle from '~/images/squirtle.png';
 import { useXRayMode } from '../pokemon-types';
+import sharedStyles from '~/styles/vanilla-css/shared.css';
 
 export const loader = async ({ params }: LoaderArgs) => {
 	const filteredPokemon = pokemonList.pokemons.filter((pokemon) =>
@@ -13,6 +14,10 @@ export const loader = async ({ params }: LoaderArgs) => {
 	return json({
 		pokemons: filteredPokemon,
 	});
+};
+
+export const links: LinksFunction = () => {
+	return [{ rel: 'stylesheet', href: sharedStyles }];
 };
 
 const PokemonGrid = () => {
@@ -27,7 +32,7 @@ const PokemonGrid = () => {
 			<div
 				className={cn('grid border border-cyan-900 rounded-lg overflow-hidden', {
 					'grid-cols-2': selectedPokemon,
-					'outline-4 outline-dashed outline-red-500 pattern-red': xRayMode,
+					'outline-4 outline-dotted outline-red-500 pattern-red': xRayMode,
 				})}
 			>
 				<div className={cn({ grayscale: xRayMode })}>
@@ -40,7 +45,7 @@ const PokemonGrid = () => {
 								key={name}
 								to={name}
 								prefetch='intent'
-								className='flex flex-col justify-center items-center'
+								className='poke-grid-item'
 								preventScrollReset
 							>
 								<img src={images?.default || unrevealedSquirtle} alt={name} />

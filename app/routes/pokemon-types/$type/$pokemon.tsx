@@ -1,7 +1,7 @@
 import type { ActionFunction, ErrorBoundaryComponent, LoaderArgs } from '@remix-run/node';
 import { Response } from '@remix-run/node';
 import { json } from '@remix-run/node';
-import { useCatch, useLoaderData, useNavigate } from '@remix-run/react';
+import { Form, useCatch, useLoaderData, useNavigate } from '@remix-run/react';
 import cn from 'classnames';
 import pokemonList from '~/data/pokemon.json';
 import { useXRayMode } from '~/routes/pokemon-types';
@@ -24,7 +24,7 @@ const PokemonDetail = () => {
 	return (
 		<div
 			className={cn('flex justify-center bg-cyan-50 relative border-l border-cyan-900', {
-				'outline-4 -outline-offset-4 outline-dashed outline-lime-500 pattern-green': xRayMode,
+				'outline-4 -outline-offset-4 outline-dotted outline-lime-500 pattern-green': xRayMode,
 			})}
 		>
 			<div className={cn('w-full', { grayscale: xRayMode })}>
@@ -37,7 +37,7 @@ const PokemonDetail = () => {
 					</div>
 					<div className='p-8'>
 						{/* Will fail when `images` is `undefined` */}
-						<img src={pokemon.images.artwork} alt={pokemon?.name} />
+						<img src={pokemon?.images.artwork} alt={pokemon?.name} />
 					</div>
 					<div className='mb-8'>
 						{pokemon?.types.map((type) => (
@@ -49,14 +49,14 @@ const PokemonDetail = () => {
 							</span>
 						))}
 					</div>
-					<form method='post' className='mt-12'>
+					<Form method='post' className='mt-12'>
 						<button
-							className='mr-2 py-2 px-4 border border-rose-600 text-rose-600 rounded-md'
+							className='mr-2 mb-10 py-2 px-4 border border-rose-600 text-rose-600 rounded-md'
 							type='submit'
 						>
 							Catch! (and fail)
 						</button>
-					</form>
+					</Form>
 				</div>
 			</div>
 		</div>
