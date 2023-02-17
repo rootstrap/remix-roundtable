@@ -1,0 +1,5 @@
+.poke-grid-item {
+  color: #b23508;
+  border: 1px solid #efb99b;
+  background: linear-gradient(-10deg, #efb99b 0%, transparent 50%);
+}
